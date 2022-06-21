@@ -1,6 +1,6 @@
 <template>
     <div class="container text-left">
-        <form class="form-group">
+        <form class="form-group" @submit.prevent="this.$parent.addBill">
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
                     <label for="nameOfBill">Name Of Bill</label>
@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-2 mt-4 pt-1">
-                    <button type="submit" class="btn btn-green btn-lg form-control text-center" @click="this.$parent.addBill">
+                    <button type="submit" class="btn btn-green btn-lg form-control text-center">
                         Add <span class="fas fa-plus ml-2"></span>
                     </button>
                 </div>

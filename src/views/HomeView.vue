@@ -75,27 +75,31 @@ export default {
     },
 
     removeBill(index) {
-      this.bills.splice(index);
+      this.bills.splice(index, 1);
       this.saveBills();
       Swal.fire({
         position: 'top-center',
         icon: 'success',
         text: 'O item foi removido com sucesso!',
-        showConfirmButton: false,
+        showConfirmButton: true,
         timer: 3000
-      })     
+      })
     },
 
     saveBills() {
       /*Essa linha abaixo salva no localStorage de fato antes só estava salvando no array*/
       const parsed = JSON.stringify(this.bills);
       localStorage.setItem("bills", parsed);
+      this.calculateRevenuesAndExpenses()
     },
 
     calculateRevenuesAndExpenses() {
+      this.amountRevenue = 0
+      this.amountExpense = 0
+      console.log('Oi')
       if (this.bills != []) {
         for (let i = 0; i < this.bills.length; i++ ) {
-          if (this.bills[i].typeBill == "Revenue") {
+          if (this.bills[i].typeBill === "Revenue") {
             this.amountRevenue += parseFloat(this.bills[i].value);
           } else {
             this.amountExpense += parseFloat(this.bills[i].value);

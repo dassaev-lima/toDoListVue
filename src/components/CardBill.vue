@@ -30,6 +30,8 @@
 export default {
     name: "CardBill",
     data() {
+        return {
+        }
     },
     props: ["name","value","typeBill","index"],
 }
