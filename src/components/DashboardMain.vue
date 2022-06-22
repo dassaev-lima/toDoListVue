@@ -11,7 +11,7 @@
             <div class="col-sm-12 col-md-6 col-lg-6 mb-3">
                 <div class="card-shadow p-5 text-center">
                     <h5>Expenses</h5>
-                    <h3 class=" text-red text-bold">$ {{ amountExpense.toFixed(2) }} </h3>
+                    <h3 class=" text-red text-bold">$ {{ amountExpense.toFixed(2) }}</h3>
                 </div>
             </div>
         </div>
@@ -23,6 +23,6 @@ export default {
     data() {
         return {}
     },
-    props: ["amountRevenue", "amountExpense"],
+    props: ["amountRevenue","amountExpense"],
 }
 </script>

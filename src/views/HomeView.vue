@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <NavBar />
-    <DashboardMain :amountRevenue="this.amountRevenue" :amountExpense="this.amountExpense"/>
+    <NavBar />  
+    <DashboardMain :amountRevenue="calculateRevenues" :amountExpense="calculateExpenses"/>
     <FormNewBill :form="form"/>
     <div class="container">
       <h3 class="text-left">Transactions</h3>
@@ -51,7 +51,32 @@ export default {
             localStorage.removeItem('bills');
         }
     }
-    this.calculateRevenuesAndExpenses();
+  },
+
+  computed: {
+    calculateRevenues() {
+      this.amountRevenue = 0;
+      if (this.bills != []) {
+        for (let i = 0; i < this.bills.length; i++ ) {
+          if (this.bills[i].typeBill === "Revenue") {
+            this.amountRevenue += parseFloat(this.bills[i].value);
+          }
+        }
+      }
+      return this.amountRevenue;    
+    },
+
+    calculateExpenses() {
+      this.amountExpense = 0;
+      if (this.bills != []) {
+        for (let i = 0; i < this.bills.length; i++ ) {
+          if (this.bills[i].typeBill === "Expense") {
+            this.amountExpense += parseFloat(this.bills[i].value);
+          }
+        }
+      }
+      return this.amountExpense;    
+    }, 
   },
 
   methods: {
@@ -63,7 +88,8 @@ export default {
           return;
         }
       }
-      this.bills.push(this.form);
+      const {name,value,typeBill} = this.form;
+      this.bills.push({name,value,typeBill});
       this.saveBills();
       Swal.fire({
         position: 'top-center',
@@ -90,23 +116,7 @@ export default {
       /*Essa linha abaixo salva no localStorage de fato antes só estava salvando no array*/
       const parsed = JSON.stringify(this.bills);
       localStorage.setItem("bills", parsed);
-      this.calculateRevenuesAndExpenses()
-    },
-
-    calculateRevenuesAndExpenses() {
-      this.amountRevenue = 0
-      this.amountExpense = 0
-      console.log('Oi')
-      if (this.bills != []) {
-        for (let i = 0; i < this.bills.length; i++ ) {
-          if (this.bills[i].typeBill === "Revenue") {
-            this.amountRevenue += parseFloat(this.bills[i].value);
-          } else {
-            this.amountExpense += parseFloat(this.bills[i].value);
-          }
-        }
-      }    
-    },    
+    },   
   },
 }
 </script>
