@@ -1,6 +1,6 @@
 <template>
     <div class="container mb-5">
-        <h2 class="text-center mb-5">Control of Expenses</h2>
+        <h2 class="text-center mb-5">Controle de despesas</h2>
         <div class="row">
             <div class="col-sm-12 col-md-6 col-lg-6 mb-3">
                 <div class="card-shadow p-5 text-center">
