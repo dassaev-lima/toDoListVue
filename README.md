@@ -9,6 +9,7 @@
 - [Tecnologias utilizadas](#hammer_and_wrench-tecnologias-utilizadas)
 - [Rodando o projeto](#rocket-rodando-o-projeto)
 - - [Pré-requisitos](#pré-requisitos)
+- [Rodando o projeto online](#rodando-o-projeto-online)
 - [Mostre seu apoio](#mostre-seu-apoio)
 
 ## :computer: Telas
@@ -38,5 +39,10 @@
  npm run serve
 ```
 
+## Rodando o projeto online
+> Acesse o projeto online clicando no link a seguir: [To-do list](https://todolist-vue-dassaev.netlify.app/ "link para o site do spotify")
+
 ## Mostre seu apoio
 Dá uma :star: se este projeto te ajudou!
+
+
